@@ -1,0 +1,625 @@
+
+/* =========================================
+   CONNECTHUB - GLOBAL RESPONSIVE OVERRIDES
+   Keeps existing React functionality unchanged
+========================================= */
+
+/* Global sizing and overflow protection */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  min-width: 0;
+  overflow-x: clip;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow-x: clip;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 100vh;
+  margin: 0;
+  text-align: initial;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button {
+  touch-action: manipulation;
+}
+
+textarea,
+input {
+  min-width: 0;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3,
+p {
+  overflow-wrap: anywhere;
+}
+
+/* Main layouts */
+.dashboard,
+.find-friends-layout,
+.my-friends-page,
+.requests-page,
+.profile-page {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.dashboard-main,
+.find-friends-main,
+.my-friends-main,
+.requests-main,
+.profile-page > .profile-container {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Sidebar widths */
+.dashboard-sidebar,
+.find-friends-sidebar,
+.friends-sidebar,
+.requests-sidebar {
+  flex-shrink: 0;
+}
+
+/* Responsive cards and grids */
+.dashboard-stats,
+.dashboard-content,
+.friends-grid,
+.find-friends-users {
+  min-width: 0;
+}
+
+.stat-card,
+.dashboard-panel,
+.friends-stat-card,
+.friends-list-panel,
+.requests-content,
+.find-friends-search-card,
+.find-friends-results,
+.my-friend-card,
+.find-friends-user-card {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.dashboard-chat-info,
+.friend-details,
+.user-card-info,
+.request-person-info,
+.message-friend-info {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.dashboard-chat-info strong,
+.dashboard-chat-info span,
+.friend-details strong,
+.friend-details span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Forms and controls */
+.find-friends-search-form,
+.friends-list-header,
+.messages-panel-header,
+.requests-header,
+.my-friends-header,
+.dashboard-header {
+  min-width: 0;
+}
+
+.find-friends-search-form input,
+.friends-list-header input,
+.form-group input,
+.form-group textarea,
+.message-input-area textarea {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.find-friends-search-form button,
+.request-actions button,
+.edit-buttons button {
+  min-height: 40px;
+}
+
+/* Chat messages and media */
+.messages-container {
+  min-width: 0;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.message-bubble {
+  min-width: 0;
+  max-width: min(78%, 560px);
+  overflow-wrap: anywhere;
+}
+
+.voice-message {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.voice-message audio {
+  width: 100%;
+  max-width: 240px;
+}
+
+.call-history-card {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.message-input-area {
+  min-width: 0;
+}
+
+.message-input-area textarea {
+  flex: 1 1 auto;
+}
+
+.emoji-picker-container {
+  max-width: calc(100vw - 20px);
+}
+
+/* Profile and edit-profile forms */
+.edit-profile-page {
+  width: 100%;
+  min-width: 0;
+  padding: clamp(14px, 4vw, 50px) clamp(12px, 3vw, 20px);
+}
+
+.edit-profile-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 650px;
+}
+
+.profile-image-section {
+  min-width: 0;
+}
+
+.profile-detail {
+  gap: 12px;
+}
+
+.detail-label,
+.detail-value {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Floating chat window */
+.chat-floating-window {
+  width: min(400px, calc(100vw - 24px));
+  max-width: calc(100vw - 24px);
+  max-height: calc(100dvh - 16px);
+}
+
+@media (max-width: 1024px) {
+  .dashboard-main,
+  .find-friends-main,
+  .my-friends-main,
+  .requests-main {
+    padding: 24px 20px;
+  }
+
+  .dashboard-content {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dashboard-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .friends-grid,
+  .find-friends-users {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .find-friends-sidebar {
+    width: 230px;
+    min-width: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Navigation layouts */
+  .dashboard,
+  .find-friends-layout,
+  .my-friends-page,
+  .requests-page,
+  .profile-page {
+    flex-direction: column;
+  }
+
+  .dashboard-sidebar,
+  .find-friends-sidebar,
+  .friends-sidebar,
+  .requests-sidebar {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+    padding: 15px;
+    border-right: 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .dashboard-logo,
+  .find-friends-logo,
+  .friends-logo,
+  .requests-logo {
+    margin-bottom: 14px;
+    padding: 0 5px 12px;
+  }
+
+  .sidebar-menu,
+  .find-friends-menu,
+  .friends-nav,
+  .requests-nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .menu-heading,
+  .find-friends-menu-title,
+  .requests-menu-title {
+    width: 100%;
+    margin: 0 5px 5px;
+  }
+
+  .menu-item,
+  .find-friends-menu-item,
+  .friends-nav-item,
+  .requests-nav-item {
+    flex: 0 1 auto;
+    min-height: 40px;
+    padding: 9px 10px;
+    font-size: 13px;
+  }
+
+  .sidebar-bottom,
+  .find-friends-sidebar-bottom {
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+  .profile-sidebar {
+    position: static;
+    width: 100%;
+    min-width: 0;
+    min-height: auto;
+    flex: 0 0 auto;
+  }
+
+  .profile-sidebar-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  /* Page spacing */
+  .dashboard-main,
+  .find-friends-main,
+  .my-friends-main,
+  .requests-main {
+    width: 100%;
+    padding: 22px 16px;
+  }
+
+  .profile-page {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .profile-page > .profile-container {
+    width: 100%;
+  }
+
+  .dashboard-header,
+  .find-friends-header,
+  .my-friends-header,
+  .requests-header {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .welcome-section,
+  .find-friends-welcome,
+  .friends-welcome,
+  .requests-welcome {
+    gap: 16px;
+    padding: 24px 20px;
+  }
+
+  .welcome-illustration {
+    margin-right: 0;
+  }
+
+  .friends-stats {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .friends-stat-card {
+    flex: 1 1 200px;
+    min-width: 0;
+  }
+
+  .friends-list-header {
+    flex-wrap: wrap;
+  }
+
+  .friends-list-header input {
+    width: 100%;
+  }
+
+  /* Messages list */
+  .messages-page {
+    padding: 22px 16px;
+  }
+
+  .messages-content {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .message-friend-item {
+    min-width: 0;
+    padding: 14px 16px;
+  }
+
+  .chat-floating-window {
+    right: 12px;
+    bottom: 12px;
+    width: min(400px, calc(100vw - 24px));
+    height: min(560px, calc(100dvh - 24px));
+    max-height: calc(100dvh - 24px);
+  }
+}
+
+@media (max-width: 600px) {
+  /* One-column content */
+  .dashboard-stats,
+  .friends-grid,
+  .find-friends-users {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .dashboard-header,
+  .find-friends-header,
+  .my-friends-header {
+    align-items: flex-start;
+  }
+
+  .dashboard-header h1,
+  .find-friends-header h1,
+  .my-friends-header h1,
+  .requests-header h1 {
+    font-size: 24px;
+  }
+
+  .dashboard-profile {
+    max-width: 100%;
+  }
+
+  .welcome-illustration,
+  .find-friends-illustration,
+  .friends-welcome-icon,
+  .requests-welcome-icon {
+    display: none;
+  }
+
+  .dashboard-panel,
+  .friends-list-panel,
+  .requests-content,
+  .find-friends-search-card,
+  .find-friends-results {
+    padding: 16px;
+  }
+
+  .find-friends-search-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .find-friends-search-form button {
+    width: 100%;
+  }
+
+  .request-card {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .request-actions {
+    display: flex;
+    width: 100%;
+  }
+
+  .request-actions button {
+    flex: 1;
+  }
+
+  .edit-profile-card {
+    padding: 22px 16px;
+  }
+
+  .edit-buttons {
+    flex-direction: column;
+  }
+
+  .cancel-button,
+  .save-button {
+    width: 100%;
+  }
+
+  .profile-content {
+    padding: 0 18px 26px;
+  }
+
+  .profile-detail {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .messages-page-header h1 {
+    font-size: 25px;
+  }
+
+  .chat-floating-window {
+    inset: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    max-width: 100%;
+    max-height: 100dvh;
+    border-radius: 0;
+  }
+
+  .chat-header {
+    min-height: 58px;
+  }
+
+  .message-bubble {
+    max-width: 84%;
+  }
+
+  .message-input-area {
+    gap: 4px;
+    padding: 8px 6px;
+  }
+
+  .input-actions {
+    gap: 0;
+  }
+
+  .input-actions button {
+    width: 28px;
+    height: 32px;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+
+  .message-input-area textarea {
+    padding: 9px 10px;
+    font-size: 16px;
+  }
+
+  .send-message-button {
+    flex-shrink: 0;
+  }
+
+  .voice-message audio {
+    max-width: 100%;
+  }
+
+  .call-history-card {
+    width: 100%;
+  }
+}
+
+@media (max-width: 380px) {
+  .dashboard-main,
+  .find-friends-main,
+  .my-friends-main,
+  .requests-main,
+  .messages-page {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .dashboard-logo h2,
+  .find-friends-logo h2,
+  .friends-logo h2,
+  .requests-logo h2 {
+    font-size: 19px;
+  }
+
+  .menu-item,
+  .find-friends-menu-item,
+  .friends-nav-item,
+  .requests-nav-item {
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  .dashboard-panel,
+  .friends-list-panel,
+  .requests-content,
+  .find-friends-search-card,
+  .find-friends-results {
+    padding: 13px;
+  }
+
+  .chat-header-actions {
+    gap: 0;
+  }
+
+  .chat-header-actions button {
+    width: 30px;
+    height: 30px;
+  }
+
+  .message-sender-avatar {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+  }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
